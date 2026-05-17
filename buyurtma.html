@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Sakura Dreams</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background: linear-gradient(135deg, #ffd6e7, #ffeef5);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+        }
+
+        .card-box {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 500px;
+            width: 90%;
+        }
+
+        h1 {
+            color: #ff4f88;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        p {
+            color: #555;
+            margin-bottom: 30px;
+        }
+
+        .btn-custom {
+            background-color: #ff4f88;
+            border: none;
+            padding: 14px;
+            font-size: 18px;
+            border-radius: 12px;
+            transition: 0.3s;
+        }
+
+        .btn-custom:hover {
+            background-color: #e63e75;
+            transform: scale(1.03);
+        }
+
+        .btn-home {
+            background-color: #6c757d;
+            border: none;
+            padding: 12px;
+            font-size: 17px;
+            border-radius: 12px;
+            transition: 0.3s;
+        }
+
+        .btn-home:hover {
+            background-color: #5a6268;
+            transform: scale(1.03);
+        }
+
+        #message {
+            margin-top: 20px;
+            font-size: 18px;
+            color: green;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="card-box">
+
+        <h1>🌸 Sakura Dreams</h1>
+
+        <p>
+            Buyurtmangiz muvaffaqiyatli rasmiylashtirildi.
+            Sizga xizmat ko‘rsatganimizdan xursandmiz 💖
+        </p>
+
+        <!-- Buyurtma tugmasi -->
+        <button class="btn btn-custom w-100 text-white mb-3" onclick="sendOrder()">
+            Buyurtmani tasdiqlash
+        </button>
+
+        <a href="SakuraDreams.html" class="btn btn-home w-100 text-white">
+            ⬅ Bosh ekranga qaytish
+        </a>
+
+        <div id="message">
+            ✅ Buyurtma qabul qilindi!
+        </div>
+
+    </div>
+
+    <script>
+        function sendOrder() {
+            document.getElementById("message").style.display = "block";
+        }
+    </script>
+
+</body>
+
+</html>

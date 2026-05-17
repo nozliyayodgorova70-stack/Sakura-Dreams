@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<title>Order - Sakura Dreams</title>
+
+<style>
+body{
+    background-color:#ffd6e7;
+}
+.petal {
+  position: fixed;
+  top: -20px;
+  width: 10px;
+  height: 10px;
+  background: pink;
+  border-radius: 50%;
+  opacity: 0.7;
+  animation: fall linear infinite;
+  z-index: 9999;
+}
+@keyframes fall {
+  0% { transform: translateY(-50px); }
+  100% { transform: translateY(100vh) translateX(80px); }
+}
+
+/* CARD */
+.card:hover {
+  transform: scale(1.05);
+  transition: 0.3s;
+}
+
+#orderBox{
+    background:white;
+    padding:20px;
+    border-radius:15px;
+    box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+
+.menu-card{
+    border-radius: 15px;
+    transition: 0.3s;
+}
+
+.menu-card:hover{
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.price{
+    font-weight: bold;
+    color: #e91e63;
+}
+</style>
+
+</head>
+
+<body>
+<script>
+setInterval(()=>{
+ let p=document.createElement("div");
+ p.className="petal";
+ p.style.left=Math.random()*window.innerWidth+"px";
+ p.style.animationDuration=(4+Math.random()*5)+"s";
+ document.body.appendChild(p);
+ setTimeout(()=>p.remove(),8000);
+},200);
+</script>
+
+<div class="container mt-5 text-center">
+
+<h1>🌸 Sakura Dreams Menu & Order</h1>
+
+<!-- MENU WITH PRICES -->
+<div class="row mt-4">
+
+  <div class="col-md-4">
+    <div class="card menu-card shadow h-100">
+      <div class="card-body">
+        <h5>📚 Kitoblar</h5>
+        <p>Detektiv - <span class="price">$8</span></p>
+        <p>Romantik - <span class="price">$7</span></p>
+        <p>Biznes - <span class="price">$9</span></p>
+        <p>Fantastika - <span class="price">$10</span></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="card menu-card shadow h-100">
+      <div class="card-body">
+        <h5>☕ Ichimliklar</h5>
+        <p>Coffee - <span class="price">$3</span></p>
+        <p>Tea - <span class="price">$2.5</span></p>
+        <p>Latte - <span class="price">$4.5</span></p>
+        <p>Juice - <span class="price">$3.5</span></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="card menu-card shadow h-100">
+      <div class="card-body">
+        <h5>🍰 Shirinliklar</h5>
+        <p>Cake - <span class="price">$6</span></p>
+        <p>Ice Cream - <span class="price">$5</span></p>
+        <p>Cheesecake - <span class="price">$7.5</span></p>
+        <p>Chocolate - <span class="price">$4</span></p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ORDER BOX -->
+<div id="orderBox" class="mt-5">
+
+  <div class="row">
+
+    <div class="col-md-4">
+      <h5>📚 Kitob</h5>
+      <select id="book" class="form-select">
+        <option value="">Tanlang</option>
+        <option>Detektiv ($8)</option>
+        <option>Romantik ($7)</option>
+        <option>Biznes ($9)</option>
+        <option>Fantastika ($10)</option>
+      </select>
+    </div>
+
+    <div class="col-md-4">
+      <h5>☕ Ichimlik</h5>
+      <select id="drink" class="form-select">
+        <option value="">Tanlang</option>
+        <option>Coffee ($3)</option>
+        <option>Tea ($2.5)</option>
+        <option>Latte ($4.5)</option>
+        <option>Juice ($3.5)</option>
+      </select>
+    </div>
+
+    <div class="col-md-4">
+      <h5>🍰 Shirinlik</h5>
+      <select id="dessert" class="form-select">
+        <option value="">Tanlang</option>
+        <option>Cake ($6)</option>
+        <option>Ice Cream ($5)</option>
+        <option>Cheesecake ($7.5)</option>
+        <option>Chocolate ($4)</option>
+      </select>
+    </div>
+
+  </div>
+
+  <button class="btn btn-success mt-4 w-100" onclick="orderNow()">
+    🤖 Buyurtma berish
+  </button>
+
+  <div id="result" class="mt-3 fw-bold"></div>
+
+  <br>
+
+  <a href="SakuraDreams.html" class="btn btn-secondary">⬅ Orqaga</a>
+
+</div>
+
+</div>
+
+<script>
+function orderNow() {
+
+  let book = document.getElementById("book").value;
+  let drink = document.getElementById("drink").value;
+  let dessert = document.getElementById("dessert").value;
+  let result = document.getElementById("result");
+
+  if(book === "" || drink === "" || dessert === "") {
+    result.style.color = "red";
+    result.innerHTML = "❌ Iltimos hammasini tanlang!";
+  } else {
+    result.style.color = "green";
+    result.innerHTML =
+      "✅ Buyurtma qabul qilindi!<br><br>" +
+      "📚 Kitob: " + book + "<br>" +
+      "☕ Ichimlik: " + drink + "<br>" +
+      "🍰 Shirinlik: " + dessert + "<br><br>" +
+      "💰 Umumiy hisob avtomatik hisoblanmoqda...";
+  }
+}
+</script>
+
+</body>
+</html>
