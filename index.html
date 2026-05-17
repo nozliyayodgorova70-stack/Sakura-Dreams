@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<title>Sakura Dreams</title>
+
+<style>
+body{
+    background-color:#ffd6e7;
+}
+.carousel-item img{
+    height:400px;
+    object-fit:cover;
+    border-radius:15px;
+}
+</style>
+</head>
+
+<body>
+    <br>
+    <button type="button" class="btn btn-primary position-relative">
+  SakuraDreams news
+  <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+    99+
+    <span class="visually-hidden">unread messages</span>
+  </span>
+</button>
+<nav class="navbar navbar-expand-lg navbar-dark" style="background-color:#ff7aa2;">
+  <div class="container">
+
+    <a class="navbar-brand" href="#"> SakuraDreams</a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+
+      <ul class="navbar-nav ms-auto">
+
+        <li class="nav-item">
+          <a class="nav-link active" href="#">Bosh sahifa</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#">Kitoblar</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#">Menu</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#">Galery</a>
+        </li>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</nav>
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="#">Home</a></li>
+    <li class="breadcrumb-item"><a href="#">menu</a></li>
+    <li class="breadcrumb-item active" aria-current="page">visit card</li>
+  </ol>
+</nav>
+
+<div class="container text-center mt-4">
+<h1 class="mb-4">Sakura Dreams — bu kitob, ilhom va zamonaviy texnologiyalar uyg‘unlashgan maskan.</h1>
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+ <strong> 🌸SakuraDreams Book Cafe ga xush kelibsiz!</strong> Bu yerda kitob o‘qib, qahva ichib dam olishingiz mumkin.
+<button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+</div>
+
+<div class="alert alert-info alert-dismissible fade show" role="alert">
+📚 Yangi kitoblar va shirin desertlar sizni kutmoqda!
+<button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+</div>
+
+<div id="carouselExampleAutoplaying" class="carousel slide w-75 mx-auto" data-bs-ride="carousel">
+
+<div class="carousel-inner">
+
+<div class="carousel-item active">
+<img src="img/s1.png" class="d-block w-100 shadow" alt="">
+</div>
+
+<div class="carousel-item">
+<img src="img/s4.jpg" class="d-block w-100 shadow" alt="">
+</div>
+
+<div class="carousel-item">
+<img src="img/s3.jpg" class="d-block w-100 shadow" alt="">
+</div>
+
+</div>
+<div class="container mt-5">
+<h2 class="text-center mb-4">🌸 SakuraDreams Book Cafe Menu</h2>
+<div class="container text-center mt-4">
+<button type="button" class="btn btn-primary m-2">📚 Kitoblar</button>
+
+<button type="button" class="btn btn-success m-2">☕️ Ichimliklar</button>
+
+<button type="button" class="btn btn-warning m-2">🍰 Shirinliklar</button>
+
+<button type="button" class="btn btn-danger m-2">📍 Manzil</button>
+
+<button type="button" class="btn btn-outline-dark m-2">🌸 Sakura Dreams haqida</button>
+
+</div>
+<div class="accordion" id="sakuraAccordion">
+
+<div class="accordion-item">
+<h2 class="accordion-header">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#books">
+📚 Kitoblar
+</button>
+</h2>
+
+<div id="books" class="accordion-collapse collapse show" data-bs-parent="#sakuraAccordion">
+<div class="accordion-body">
+Jahon adabiyotlari, Dorama kitoblar, motivatsion kitoblar va koreys adabiyoti kitoblarini o‘qishingiz mumkin.
+</div>
+</div>
+</div>
+
+<div class="accordion-item">
+<h2 class="accordion-header">
+<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#drinks">
+☕️ Ichimliklar
+</button>
+</h2>
+
+<div id="drinks" class="accordion-collapse collapse" data-bs-parent="#sakuraAccordion">
+<div class="accordion-body">
+Americano, Latte, Cappuccino, Sakura choyi va sovuq ichimliklar mavjud.
+</div>
+</div>
+</div>
+
+<div class="accordion-item">
+<h2 class="accordion-header">
+<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#dessert">
+🍰 Shirinliklar
+</button>
+</h2>
+
+<div id="dessert" class="accordion-collapse collapse" data-bs-parent="#sakuraAccordion">
+<div class="accordion-body">
+Shokoladli tort, muzqaymoq, cheesecake va mevali desertlar mavjud.
+</div>
+</div>
+</div>
+
+<div class="accordion-item">
+<h2 class="accordion-header">
+<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#location">
+📍 Manzil
+</button>
+</h2>
+
+<div id="location" class="accordion-collapse collapse" data-bs-parent="#sakuraAccordion">
+<div class="accordion-body">
+SakuraDreams Book Cafe – kitob o‘qish, dam olish va ilhom olish uchun yaratilgan maskan.
+</div>
+</div>
+</div>
+
+</div>
+</div>
+<br>
+<br>
+<div class="container mt-5">
+<div class="row justify-content-center">
+
+<div class="col-md-4 mb-4">
+<div class="card shadow h-100">
+<img src="img/s5.jpg" class="card-img-top" alt="Kitoblar" height="300">
+<div class="card-body text-center">
+<h5 class="card-title">Kitoblar ro'yxati</h5>
+<p class="card-text">❤️Barchasi siz uchun eng yaxshi kitoblar to‘plami.</p>
+<a href="uuuuuu.html" class="btn btn-primary m-2">📚 Kitoblar Ro'yxati </a>
+</div>
+</div>
+</div>
+
+<div class="col-md-4 mb-4">
+<div class="card shadow h-100">
+<img src="img/s6.jpg" class="card-img-top" alt="Menu" height="300">
+<div class="card-body text-center">
+<h5 class="card-title">Menu</h5>
+<p class="card-text">Shirinlik va ichimliklar bilan kitob o‘qish eng zavqlisi.</p>
+<a href="order.html" class="btn btn-primary m-2">📚 Zakaz berish</a>
+
+</div>
+</div>
+</div>
+
+</div>
+</div>
+<br>
+<br>
+
+<div id="carouselExampleAutoplaying" class="carousel slide w-75 mx-auto" data-bs-ride="carousel">
+
+<div class="carousel-inner">
+
+<div class="carousel-item active">
+<img src="img/s2.jpg" class="d-block w-100 shadow" alt="">
+</div>
+
+<div class="carousel-item">
+<img src="img/s4.jpg" class="d-block w-100 shadow" alt="">
+</div>
+
+<div class="carousel-item">
+<img src="img/s3.jpg" class="d-block w-100 shadow" alt="">
+</div>
+
+</div>
+
+<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+<span class="carousel-control-prev-icon"></span>
+</button>
+
+<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+<span class="carousel-control-next-icon"></span>
+</button>
+
+</div>
+
+</div>
+<br>
+<br>
+<h3>Sizga xizmat ko'rsatganimizdan hursandmiz(Hurmat bilan N.Y.S)</h3>
+
+<button class="btn btn-success mt-4 w-100" onclick="sendOrder()">
+  <a href="buyurtma.html" >Buyurtma yuborish</a>
+</button>
+<br>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
