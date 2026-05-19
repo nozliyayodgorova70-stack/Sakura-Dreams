@@ -4,188 +4,291 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
+<title>Sakura Dreams Library</title>
+
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
 
-<title>Sakura Dreams</title>
-
 <style>
+
 body{
-    background: linear-gradient(to bottom, #ffd6e7, #fff);
-    overflow-x: hidden;
+    background: linear-gradient(135deg,#ffd6e7,#fff,#fff8fb);
+    font-family: Arial, sans-serif;
 }
 
-/* SAKURA */
-.petal {
-  position: fixed;
-  top: -20px;
-  width: 10px;
-  height: 10px;
-  background: pink;
-  border-radius: 50%;
-  opacity: 0.7;
-  animation: fall linear infinite;
-  z-index: 9999;
-}
-@keyframes fall {
-  0% { transform: translateY(-50px); }
-  100% { transform: translateY(100vh) translateX(80px); }
-}
-
-/* CARD */
-.card:hover {
-  transform: scale(1.05);
-  transition: 0.3s;
-}
-
-/* ORDER BOX */
-#orderBox{
+/* NAV */
+nav{
     background:white;
-    padding:20px;
+    box-shadow:0 2px 10px rgba(0,0,0,0.1);
+}
+
+/* HERO */
+.hero{
+    text-align:center;
+    padding:60px 20px;
+}
+
+.hero h1{
+    font-size:50px;
+    color:#ff4f8b;
+}
+
+/* BOOK CARD */
+.book-card{
+    border:none;
+    border-radius:18px;
+    background:white;
+    box-shadow:0 5px 20px rgba(0,0,0,0.08);
+    transition:0.3s;
+    height:100%;
+}
+
+.book-card:hover{
+    transform:scale(1.04);
+}
+
+/* BUTTON */
+.btn-pink{
+    background:#ff4f8b;
+    color:white;
+}
+
+/* RESULT */
+#result{
+    display:none;
+}
+
+/* SURVEY */
+.recommend{
+    display:none;
+    margin-top:20px;
+    background:#fff0f6;
+    padding:15px;
     border-radius:15px;
-    box-shadow:0 0 10px rgba(0,0,0,0.1);
 }
-.price{
-    color:#e91e63;
-    font-weight:bold;
-}
+
+.page{ display:none; }
+
 </style>
 </head>
 
 <body>
 
-<!-- SAKURA SCRIPT -->
-<script>
-setInterval(()=>{
- let p=document.createElement("div");
- p.className="petal";
- p.style.left=Math.random()*window.innerWidth+"px";
- p.style.animationDuration=(4+Math.random()*5)+"s";
- document.body.appendChild(p);
- setTimeout(()=>p.remove(),8000);
-},200);
-</script>
+<!-- NAVBAR -->
+<nav class="navbar px-3 py-2">
+    <b class="text-danger">🌸 Sakura Dreams</b>
 
-<div class="container text-center mt-4">
+    <div class="ms-auto d-flex gap-2">
 
-<h1>🌸 Sakura Dreams Book Cafe</h1>
-<p>Relax • Read • Dream</p>
+        <!-- HOME = REAL INDEX.HTML -->
+        <a href="index.html" class="btn btn-outline-danger">
+            🏠 Home
+        </a>
 
-<!-- MENU -->
-<div class="row mt-4">
+        <button class="btn btn-outline-danger" onclick="showPage('books')">📚 Books</button>
+        <button class="btn btn-outline-danger" onclick="showPage('order')">🛒 Order</button>
+        <button class="btn btn-outline-danger" onclick="showPage('survey')">🧠 Survey</button>
 
-<div class="col-md-4">
-<div class="card shadow h-100">
-<div class="card-body">
-<h5>📚 Kitoblar</h5>
-<p>Detektiv - <span class="price">$8</span></p>
-<p>Romantik - <span class="price">$7</span></p>
-<p>Biznes - <span class="price">$9</span></p>
-<p>Fantastika - <span class="price">$10</span></p>
-</div>
-</div>
+    </div>
+</nav>
+
+<!-- HOME -->
+<div id="home" class="page" style="display:block;">
+    <div class="hero">
+        <h1>🌸 Sakura Dreams Library</h1>
+        <p>Jahon adabiyotlari • Sokin mutolaa • Arzon narxlar</p>
+    </div>
 </div>
 
-<div class="col-md-4">
-<div class="card shadow h-100">
-<div class="card-body">
-<h5>☕ Ichimliklar</h5>
-<p>Coffee - <span class="price">$3</span></p>
-<p>Tea - <span class="price">$2.5</span></p>
-<p>Latte - <span class="price">$4.5</span></p>
-<p>Juice - <span class="price">$3.5</span></p>
-</div>
-</div>
-</div>
+<!-- BOOKS (KENGAYTIRILGAN) -->
+<div id="books" class="page container mt-4">
 
-<div class="col-md-4">
-<div class="card shadow h-100">
-<div class="card-body">
-<h5>🍰 Shirinliklar</h5>
-<p>Cake - <span class="price">$6</span></p>
-<p>Ice Cream - <span class="price">$5</span></p>
-<p>Cheesecake - <span class="price">$7.5</span></p>
-<p>Chocolate - <span class="price">$4</span></p>
-</div>
-</div>
-</div>
+<h2 class="text-center mb-4">📚 Books Collection</h2>
 
+<div class="row g-4">
+
+    <div class="col-md-3">
+        <div class="book-card p-3">
+            <h5>📖 O'tkan Kunlar</h5>
+            <p>Abdulla Qodiriy</p>
+            <b>$1.5</b>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="book-card p-3">
+            <h5>📚 Sherlock Holmes</h5>
+            <p>Arthur Conan Doyle</p>
+            <b>$2.0</b>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="book-card p-3">
+            <h5>🌍 Alkimyogar</h5>
+            <p>Paulo Coelho</p>
+            <b>$1.8</b>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="book-card p-3">
+            <h5>✨ Harry Potter</h5>
+            <p>J.K. Rowling</p>
+            <b>$2.5</b>
+        </div>
+    </div>
+
+    <!-- YANGI KITOBLAR -->
+    <div class="col-md-3">
+        <div class="book-card p-3">
+            <h5>🧠 Atomic Habits</h5>
+            <p>James Clear</p>
+            <b>$2.2</b>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="book-card p-3">
+            <h5>💼 Rich Dad Poor Dad</h5>
+            <p>Robert Kiyosaki</p>
+            <b>$2.0</b>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="book-card p-3">
+            <h5>🕵️ Da Vinci Code</h5>
+            <p>Dan Brown</p>
+            <b>$2.3</b>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="book-card p-3">
+            <h5>💖 Romeo & Juliet</h5>
+            <p>Shakespeare</p>
+            <b>$1.7</b>
+        </div>
+    </div>
+
+</div>
 </div>
 
 <!-- ORDER -->
-<div id="orderBox" class="mt-5">
+<div id="order" class="page container mt-4">
 
-<div class="row">
+<h2 class="text-center">🛒 Buyurtma</h2>
 
-<div class="col-md-4">
-<select id="book" class="form-select">
-<option value="">📚 Kitob tanlang</option>
-<option value="8">Detektiv</option>
-<option value="7">Romantik</option>
-<option value="9">Biznes</option>
-<option value="10">Fantastika</option>
+<select id="book" class="form-select mt-3">
+    <option value="">Kitob tanlang</option>
+    <option value="1.5" data-name="O'tkan Kunlar">O'tkan Kunlar</option>
+    <option value="2" data-name="Sherlock Holmes">Sherlock Holmes</option>
+    <option value="1.8" data-name="Alkimyogar">Alkimyogar</option>
+    <option value="2.5" data-name="Harry Potter">Harry Potter</option>
 </select>
-</div>
 
-<div class="col-md-4">
-<select id="drink" class="form-select">
-<option value="">☕ Ichimlik tanlang</option>
-<option value="3">Coffee</option>
-<option value="2.5">Tea</option>
-<option value="4.5">Latte</option>
-<option value="3.5">Juice</option>
+<select id="days" class="form-select mt-2">
+    <option value="1">1 kun</option>
+    <option value="3">3 kun</option>
+    <option value="5">5 kun</option>
 </select>
+
+<button class="btn btn-pink w-100 mt-3" onclick="orderBook()">📖 Buyurtma</button>
+
+<div id="result" class="alert alert-success mt-3"></div>
+
 </div>
 
-<div class="col-md-4">
-<select id="dessert" class="form-select">
-<option value="">🍰 Shirinlik tanlang</option>
-<option value="6">Cake</option>
-<option value="5">Ice Cream</option>
-<option value="7.5">Cheesecake</option>
-<option value="4">Chocolate</option>
+<!-- SURVEY -->
+<div id="survey" class="page container mt-4">
+
+<h2 class="text-center">🧠 Tavsiya testi</h2>
+
+<select id="mood" class="form-select mt-3">
+<option>Xursand</option>
+<option>Motivatsiya kerak</option>
+<option>Romantik</option>
+<option>Sirli</option>
 </select>
-</div>
 
-</div>
+<select id="genre" class="form-select mt-2">
+<option>Fantastika</option>
+<option>Detektiv</option>
+<option>Biznes</option>
+<option>Romantik</option>
+</select>
 
-<button class="btn btn-success mt-4 w-100" onclick="orderNow()">
-🤖 Buyurtma berish
-</button>
+<button class="btn btn-pink w-100 mt-3" onclick="recommendBook()">✨ Tavsiya</button>
 
- <div id="result" class="mt-3 fw-bold"></div>
-
-  <br>
-
-  <a href="index.html" class="btn btn-secondary">⬅ Orqaga</a>
-
-</div>
+<div id="recommend" class="recommend"></div>
 
 </div>
 
 <script>
-function orderNow() {
 
-let b=document.getElementById("book").value;
-let d=document.getElementById("drink").value;
-let s=document.getElementById("dessert").value;
-let res=document.getElementById("result");
+/* SPA NAV */
+function showPage(page){
 
-if(!b||!d||!s){
- res.style.color="red";
- res.innerHTML="❌ Hammasini tanlang!";
- return;
+document.querySelectorAll(".page").forEach(p=>{
+    p.style.display="none";
+});
+
+document.getElementById(page).style.display="block";
+
+window.scrollTo({top:0, behavior:"smooth"});
 }
 
-let total=parseFloat(b)+parseFloat(d)+parseFloat(s);
+/* ORDER */
+function orderBook(){
 
-res.style.color="green";
-res.innerHTML=
-"✅ Buyurtma qabul qilindi!<br>"+
-"💰 Jami: $"+total;
+let book=document.getElementById("book");
+let days=document.getElementById("days").value;
+let result=document.getElementById("result");
+
+result.style.display="block";
+
+if(book.value==""){
+result.innerHTML="⚠️ Kitob tanlanmagan!";
+return;
 }
+
+let price=parseFloat(book.value);
+let total=price*days;
+
+result.innerHTML=`
+📖 ${book.options[book.selectedIndex].dataset.name}<br>
+📅 ${days} kun<br>
+💰 $${total.toFixed(1)}
+`;
+}
+
+/* RECOMMEND */
+function recommendBook(){
+
+let mood=document.getElementById("mood").value;
+let genre=document.getElementById("genre").value;
+
+let text="";
+
+if(mood=="Motivatsiya kerak" || genre=="Biznes"){
+text="Atomic Habits / Rich Dad Poor Dad";
+}
+else if(mood=="Romantik"){
+text="Romeo & Juliet";
+}
+else if(mood=="Sirli"){
+text="Da Vinci Code";
+}
+else{
+text="Harry Potter / Alkimyogar";
+}
+
+let r=document.getElementById("recommend");
+r.style.display="block";
+r.innerHTML="🌸 Sizga: " + text;
+}
+
 </script>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>

@@ -1,198 +1,734 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="uz">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+<title>Sakura Dreams Premium</title>
 
-<title>Order - Sakura Dreams</title>
+<!-- Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
+
+:root{
+    --pink:#ff4f8b;
+    --lightPink:#ffd6e7;
+    --dark:#333;
+    --glass:rgba(255,255,255,0.7);
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
 body{
-    background-color:#ffd6e7;
-}
-.petal {
-  position: fixed;
-  top: -20px;
-  width: 10px;
-  height: 10px;
-  background: pink;
-  border-radius: 50%;
-  opacity: 0.7;
-  animation: fall linear infinite;
-  z-index: 9999;
-}
-@keyframes fall {
-  0% { transform: translateY(-50px); }
-  100% { transform: translateY(100vh) translateX(80px); }
+    font-family:'Poppins',sans-serif;
+    background:linear-gradient(135deg,#ffd6e7,#fff,#fff7fb);
+    overflow-x:hidden;
+    min-height:100vh;
 }
 
-/* CARD */
-.card:hover {
-  transform: scale(1.05);
-  transition: 0.3s;
+/* ================= NAVBAR ================= */
+
+.navbar{
+    background:rgba(255,255,255,0.75);
+    backdrop-filter:blur(10px);
+    box-shadow:0 5px 20px rgba(0,0,0,0.08);
 }
 
-#orderBox{
-    background:white;
-    padding:20px;
-    border-radius:15px;
-    box-shadow:0 0 10px rgba(0,0,0,0.1);
+.navbar-brand{
+    font-weight:800;
+    color:var(--pink)!important;
+    font-size:28px;
 }
+
+/* ================= HERO ================= */
+
+.hero{
+    padding:80px 20px 50px;
+    text-align:center;
+}
+
+.logo{
+    width:120px;
+    height:120px;
+    object-fit:cover;
+    border-radius:50%;
+    border:4px solid white;
+    box-shadow:0 0 30px rgba(255,79,139,0.5);
+    animation:float 3s ease-in-out infinite;
+}
+
+@keyframes float{
+    0%{transform:translateY(0px);}
+    50%{transform:translateY(-10px);}
+    100%{transform:translateY(0px);}
+}
+
+.hero h1{
+    margin-top:20px;
+    font-size:60px;
+    font-weight:800;
+    color:var(--pink);
+    text-shadow:2px 2px 10px rgba(0,0,0,0.1);
+}
+
+.hero p{
+    color:#666;
+    font-size:20px;
+}
+
+/* ================= SAKURA ================= */
+
+.petal{
+    position:fixed;
+    top:-20px;
+    width:14px;
+    height:14px;
+    background:#ffb7d2;
+    border-radius:15px 2px 15px 15px;
+    opacity:0.8;
+    z-index:9999;
+    pointer-events:none;
+    animation:fall linear infinite;
+}
+
+@keyframes fall{
+    0%{
+        transform:translateY(-50px) rotate(0deg);
+    }
+    100%{
+        transform:translateY(110vh) translateX(140px) rotate(360deg);
+    }
+}
+
+/* ================= CARD ================= */
 
 .menu-card{
-    border-radius: 15px;
-    transition: 0.3s;
+    border:none;
+    border-radius:25px;
+    overflow:hidden;
+    background:rgba(255,255,255,0.85);
+    backdrop-filter:blur(12px);
+    transition:0.4s;
+    box-shadow:0 10px 25px rgba(0,0,0,0.05);
 }
 
 .menu-card:hover{
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    transform:translateY(-10px) scale(1.03);
+    box-shadow:0 15px 35px rgba(255,79,139,0.25);
+}
+
+.card-body{
+    padding:30px;
+}
+
+.menu-icon{
+    font-size:55px;
+    margin-bottom:15px;
+    color:var(--pink);
+}
+
+.card-title{
+    font-weight:700;
+    margin-bottom:20px;
+    color:var(--dark);
+}
+
+.menu-item{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:15px;
+    font-size:16px;
 }
 
 .price{
-    font-weight: bold;
-    color: #e91e63;
+    background:#fff0f5;
+    padding:5px 12px;
+    border-radius:10px;
+    color:var(--pink);
+    font-weight:700;
 }
-</style>
 
+/* ================= ORDER BOX ================= */
+
+#orderBox{
+    margin-top:70px;
+    background:rgba(255,255,255,0.9);
+    backdrop-filter:blur(15px);
+    padding:40px;
+    border-radius:30px;
+    box-shadow:0 15px 40px rgba(0,0,0,0.08);
+}
+
+.order-title{
+    text-align:center;
+    font-weight:800;
+    margin-bottom:30px;
+    color:var(--pink);
+}
+
+.form-select{
+    border-radius:15px;
+    padding:14px;
+    border:2px solid #ffd6e7;
+}
+
+.form-select:focus{
+    border-color:var(--pink);
+    box-shadow:0 0 10px rgba(255,79,139,0.2);
+}
+
+.live-box{
+    margin-top:25px;
+    text-align:right;
+    font-size:24px;
+    font-weight:700;
+    color:var(--pink);
+}
+
+/* ================= BUTTON ================= */
+
+.order-btn{
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:18px;
+    margin-top:25px;
+    font-size:20px;
+    font-weight:700;
+    color:white;
+    background:linear-gradient(to right,#ff4f8b,#ff86b0);
+    transition:0.3s;
+}
+
+.order-btn:hover{
+    transform:scale(1.02);
+    background:linear-gradient(to right,#ff2f75,#ff6ba1);
+}
+
+/* ================= RECEIPT ================= */
+
+.receipt{
+    margin-top:30px;
+    display:none;
+    background:#fffafb;
+    border:2px dashed #ffc1d6;
+    border-radius:20px;
+    padding:25px;
+}
+
+.receipt h4{
+    color:#20b486;
+    font-weight:700;
+}
+
+.receipt-item{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:10px;
+}
+
+.total-box{
+    border-top:2px dashed #ffc1d6;
+    margin-top:15px;
+    padding-top:15px;
+    display:flex;
+    justify-content:space-between;
+    font-size:22px;
+    font-weight:700;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+    margin-top:80px;
+    background:#fff0f5;
+    padding:25px;
+    text-align:center;
+    color:#666;
+    font-weight:500;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:768px){
+
+.hero h1{
+    font-size:38px;
+}
+
+.hero p{
+    font-size:16px;
+}
+
+.logo{
+    width:90px;
+    height:90px;
+}
+
+}
+
+</style>
 </head>
 
 <body>
+
+<!-- NAVBAR -->
+
+<nav class="navbar navbar-expand-lg">
+<div class="container">
+
+<a class="navbar-brand" href="#">
+🌸 Sakura Dreams
+</a>
+
+</div>
+</nav>
+
+<!-- SAKURA EFFECT -->
+
 <script>
+
 setInterval(()=>{
- let p=document.createElement("div");
- p.className="petal";
- p.style.left=Math.random()*window.innerWidth+"px";
- p.style.animationDuration=(4+Math.random()*5)+"s";
- document.body.appendChild(p);
- setTimeout(()=>p.remove(),8000);
-},200);
+
+let p=document.createElement("div");
+
+p.className="petal";
+
+p.style.left=Math.random()*window.innerWidth+"px";
+
+p.style.animationDuration=(4+Math.random()*5)+"s";
+
+let size=(8+Math.random()*10)+"px";
+
+p.style.width=size;
+p.style.height=size;
+
+document.body.appendChild(p);
+
+setTimeout(()=>{
+p.remove();
+},8000);
+
+},250);
+
 </script>
 
-<div class="container mt-5 text-center">
+<!-- HERO -->
 
-<h1>🌸 Sakura Dreams Menu & Order</h1>
+<section class="hero">
 
-<!-- MENU WITH PRICES -->
-<div class="row mt-4">
+<img src="nyslogo.png" class="logo">
 
-  <div class="col-md-4">
-    <div class="card menu-card shadow h-100">
-      <div class="card-body">
-        <h5>📚 Kitoblar</h5>
-        <p>Detektiv - <span class="price">$8</span></p>
-        <p>Romantik - <span class="price">$7</span></p>
-        <p>Biznes - <span class="price">$9</span></p>
-        <p>Fantastika - <span class="price">$10</span></p>
-      </div>
-    </div>
-  </div>
+<h1>Sakura Dreams</h1>
 
-  <div class="col-md-4">
-    <div class="card menu-card shadow h-100">
-      <div class="card-body">
-        <h5>☕ Ichimliklar</h5>
-        <p>Coffee - <span class="price">$3</span></p>
-        <p>Tea - <span class="price">$2.5</span></p>
-        <p>Latte - <span class="price">$4.5</span></p>
-        <p>Juice - <span class="price">$3.5</span></p>
-      </div>
-    </div>
-  </div>
+<p>
+Relax • Read • Dream • Coffee
+</p>
 
-  <div class="col-md-4">
-    <div class="card menu-card shadow h-100">
-      <div class="card-body">
-        <h5>🍰 Shirinliklar</h5>
-        <p>Cake - <span class="price">$6</span></p>
-        <p>Ice Cream - <span class="price">$5</span></p>
-        <p>Cheesecake - <span class="price">$7.5</span></p>
-        <p>Chocolate - <span class="price">$4</span></p>
-      </div>
-    </div>
-  </div>
+</section>
+
+<!-- MENU -->
+
+<div class="container">
+
+<div class="row g-4">
+
+<!-- BOOK -->
+
+<div class="col-md-4">
+
+<div class="menu-card h-100">
+
+<div class="card-body text-center">
+
+<div class="menu-icon">
+<i class="fa-solid fa-book-open"></i>
+</div>
+
+<h4 class="card-title">
+📚 Kitoblar
+</h4>
+
+<div class="menu-item">
+<span>Detektiv</span>
+<span class="price">$8</span>
+</div>
+
+<div class="menu-item">
+<span>Romantik</span>
+<span class="price">$7</span>
+</div>
+
+<div class="menu-item">
+<span>Biznes</span>
+<span class="price">$9</span>
+</div>
+
+<div class="menu-item">
+<span>Fantastika</span>
+<span class="price">$10</span>
+</div>
+
+</div>
+</div>
+</div>
+
+<!-- DRINK -->
+
+<div class="col-md-4">
+
+<div class="menu-card h-100">
+
+<div class="card-body text-center">
+
+<div class="menu-icon">
+<i class="fa-solid fa-mug-hot"></i>
+</div>
+
+<h4 class="card-title">
+☕ Ichimliklar
+</h4>
+
+<div class="menu-item">
+<span>Coffee</span>
+<span class="price">$3</span>
+</div>
+
+<div class="menu-item">
+<span>Tea</span>
+<span class="price">$2.5</span>
+</div>
+
+<div class="menu-item">
+<span>Latte</span>
+<span class="price">$4.5</span>
+</div>
+
+<div class="menu-item">
+<span>Juice</span>
+<span class="price">$3.5</span>
+</div>
+
+</div>
+</div>
+</div>
+
+<!-- DESSERT -->
+
+<div class="col-md-4">
+
+<div class="menu-card h-100">
+
+<div class="card-body text-center">
+
+<div class="menu-icon">
+<i class="fa-solid fa-cake-candles"></i>
+</div>
+
+<h4 class="card-title">
+🍰 Shirinliklar
+</h4>
+
+<div class="menu-item">
+<span>Cake</span>
+<span class="price">$6</span>
+</div>
+
+<div class="menu-item">
+<span>Ice Cream</span>
+<span class="price">$5</span>
+</div>
+
+<div class="menu-item">
+<span>Cheesecake</span>
+<span class="price">$7.5</span>
+</div>
+
+<div class="menu-item">
+<span>Chocolate</span>
+<span class="price">$4</span>
+</div>
+
+</div>
+</div>
+</div>
 
 </div>
 
 <!-- ORDER BOX -->
-<div id="orderBox" class="mt-5">
 
-  <div class="row">
+<div id="orderBox">
 
-    <div class="col-md-4">
-      <h5>📚 Kitob</h5>
-      <select id="book" class="form-select">
-        <option value="">Tanlang</option>
-        <option>Detektiv ($8)</option>
-        <option>Romantik ($7)</option>
-        <option>Biznes ($9)</option>
-        <option>Fantastika ($10)</option>
-      </select>
-    </div>
+<h2 class="order-title">
+🛍 Buyurtma berish
+</h2>
 
-    <div class="col-md-4">
-      <h5>☕ Ichimlik</h5>
-      <select id="drink" class="form-select">
-        <option value="">Tanlang</option>
-        <option>Coffee ($3)</option>
-        <option>Tea ($2.5)</option>
-        <option>Latte ($4.5)</option>
-        <option>Juice ($3.5)</option>
-      </select>
-    </div>
+<div class="row g-3">
 
-    <div class="col-md-4">
-      <h5>🍰 Shirinlik</h5>
-      <select id="dessert" class="form-select">
-        <option value="">Tanlang</option>
-        <option>Cake ($6)</option>
-        <option>Ice Cream ($5)</option>
-        <option>Cheesecake ($7.5)</option>
-        <option>Chocolate ($4)</option>
-      </select>
-    </div>
+<!-- BOOK SELECT -->
 
-  </div>
+<div class="col-md-4">
 
-  <button class="btn btn-success mt-4 w-100" onclick="orderNow()">
-    🤖 Buyurtma berish
-  </button>
+<select id="book" class="form-select" onchange="calculateTotal()">
 
-  <div id="result" class="mt-3 fw-bold"></div>
+<option value="" data-name="">
+📚 Kitob tanlang
+</option>
 
-  <br>
+<option value="8" data-name="Detektiv">
+Detektiv ($8)
+</option>
 
-  <a href="index.html" class="btn btn-secondary">⬅ Orqaga</a>
+<option value="7" data-name="Romantik">
+Romantik ($7)
+</option>
+
+<option value="9" data-name="Biznes">
+Biznes ($9)
+</option>
+
+<option value="10" data-name="Fantastika">
+Fantastika ($10)
+</option>
+
+</select>
+
+</div>
+
+<!-- DRINK -->
+
+<div class="col-md-4">
+
+<select id="drink" class="form-select" onchange="calculateTotal()">
+
+<option value="" data-name="">
+☕ Ichimlik tanlang
+</option>
+
+<option value="3" data-name="Coffee">
+Coffee ($3)
+</option>
+
+<option value="2.5" data-name="Tea">
+Tea ($2.5)
+</option>
+
+<option value="4.5" data-name="Latte">
+Latte ($4.5)
+</option>
+
+<option value="3.5" data-name="Juice">
+Juice ($3.5)
+</option>
+
+</select>
+
+</div>
+
+<!-- DESSERT -->
+
+<div class="col-md-4">
+
+<select id="dessert" class="form-select" onchange="calculateTotal()">
+
+<option value="" data-name="">
+🍰 Shirinlik tanlang
+</option>
+
+<option value="6" data-name="Cake">
+Cake ($6)
+</option>
+
+<option value="5" data-name="Ice Cream">
+Ice Cream ($5)
+</option>
+
+<option value="7.5" data-name="Cheesecake">
+Cheesecake ($7.5)
+</option>
+
+<option value="4" data-name="Chocolate">
+Chocolate ($4)
+</option>
+
+</select>
 
 </div>
 
 </div>
+
+<!-- LIVE PRICE -->
+
+<div class="live-box">
+
+💰 Joriy hisob:
+<span id="livePrice">$0.0</span>
+
+</div>
+
+<!-- BUTTON -->
+
+<button class="order-btn" onclick="submitOrder()">
+
+<i class="fa-solid fa-receipt"></i>
+ Xaridni rasmiylashtirish
+
+</button>
+
+<!-- RECEIPT -->
+
+<div class="receipt" id="receipt">
+
+<h4 class="text-center mb-4">
+
+✅ Buyurtma qabul qilindi!
+
+</h4>
+
+<div id="receiptDetails"></div>
+
+<div class="total-box">
+
+<span>Jami:</span>
+
+<span id="finalPrice"></span>
+
+</div>
+
+</div>
+
+<!-- BACK BUTTON -->
+
+<div class="text-center mt-4">
+
+<a href="index.html" class="btn btn-outline-secondary px-4 py-2 rounded-pill">
+
+⬅ Orqaga
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- FOOTER -->
+
+<footer>
+
+🌸 Sakura Dreams © 2026 | Made with ❤️ by NYS
+
+</footer>
+
+<!-- SCRIPT -->
 
 <script>
-function orderNow() {
 
-  let book = document.getElementById("book").value;
-  let drink = document.getElementById("drink").value;
-  let dessert = document.getElementById("dessert").value;
-  let result = document.getElementById("result");
+function calculateTotal(){
 
-  if(book === "" || drink === "" || dessert === "") {
-    result.style.color = "red";
-    result.innerHTML = "❌ Iltimos hammasini tanlang!";
-  } else {
-    result.style.color = "green";
-    result.innerHTML =
-      "✅ Buyurtma qabul qilindi!<br><br>" +
-      "📚 Kitob: " + book + "<br>" +
-      "☕ Ichimlik: " + drink + "<br>" +
-      "🍰 Shirinlik: " + dessert + "<br><br>" +
-      "💰 Umumiy hisob avtomatik hisoblanmoqda...";
-  }
+let b=parseFloat(document.getElementById("book").value)||0;
+
+let d=parseFloat(document.getElementById("drink").value)||0;
+
+let s=parseFloat(document.getElementById("dessert").value)||0;
+
+let total=b+d+s;
+
+document.getElementById("livePrice").innerHTML=
+"$"+total.toFixed(1);
+
+return total;
+
 }
+
+function submitOrder(){
+
+let book=document.getElementById("book");
+
+let drink=document.getElementById("drink");
+
+let dessert=document.getElementById("dessert");
+
+let b=parseFloat(book.value)||0;
+
+let d=parseFloat(drink.value)||0;
+
+let s=parseFloat(dessert.value)||0;
+
+if(b===0 && d===0 && s===0){
+
+alert("⚠️ Kamida bitta mahsulot tanlang!");
+
+return;
+
+}
+
+let total=calculateTotal();
+
+let details="";
+
+if(b>0){
+
+details+=`
+<div class="receipt-item">
+<span>📚 ${book.options[book.selectedIndex].dataset.name}</span>
+<span>$${b.toFixed(1)}</span>
+</div>
+`;
+
+}
+
+if(d>0){
+
+details+=`
+<div class="receipt-item">
+<span>☕ ${drink.options[drink.selectedIndex].dataset.name}</span>
+<span>$${d.toFixed(1)}</span>
+</div>
+`;
+
+}
+
+if(s>0){
+
+details+=`
+<div class="receipt-item">
+<span>🍰 ${dessert.options[dessert.selectedIndex].dataset.name}</span>
+<span>$${s.toFixed(1)}</span>
+</div>
+`;
+
+}
+
+document.getElementById("receiptDetails").innerHTML=details;
+
+document.getElementById("finalPrice").innerHTML=
+"$"+total.toFixed(1);
+
+document.getElementById("receipt").style.display="block";
+
+document.getElementById("receipt").scrollIntoView({
+behavior:"smooth"
+});
+
+}
+
 </script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>
